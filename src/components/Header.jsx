@@ -68,7 +68,7 @@ const Header = () => {
             transition={{ duration: 0.2 }}
           >
             <img src="/logo.svg" alt="DEV SPHERE Logo" />
-            <span className="company-name">DEV SPHERE</span>
+           
           </motion.div>
 
           {/* Desktop Navigation */}
