@@ -5,16 +5,27 @@
 }
 
 :root {
-  --primary-color: #0066ff;
-  --secondary-color: #1a1a1a;
+  --primary-color: #6366f1;
+  --secondary-color: #8b5cf6;
+  --accent-color: #06b6d4;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
   --text-primary: #ffffff;
-  --text-secondary: #cccccc;
-  --text-muted: #888888;
-  --background-dark: #0a0a0a;
-  --background-section: #111111;
-  --border-color: #333333;
-  --gradient-primary: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
-  --gradient-secondary: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --background-dark: #0f0f23;
+  --background-section: #1a1a2e;
+  --background-card: #16213e;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
+  --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  --gradient-hero: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -113,6 +124,23 @@ a:hover {
 /* Section spacing */
 .section {
   padding: 5rem 0;
+}
+
+/* Section-specific styling */
+#home {
+  padding: 0;
+}
+
+#team {
+  background: var(--background-section);
+}
+
+#contact {
+  background: var(--background-dark);
+}
+
+#cta {
+  background: var(--background-dark);
 }
 
 /* Animations */

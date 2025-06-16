@@ -1,37 +1,37 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiDollarSign, FiZap, FiLayers, FiActivity } from 'react-icons/fi';
+import { FiCode, FiSmartphone, FiGlobe, FiLayers } from 'react-icons/fi';
 import FloatingCard from './FloatingCard.jsx';
 
 const Features = () => {
   const features = [
     {
-      icon: <FiDollarSign />,
-      title: 'Billing',
-      subtitle: 'Real-Time Convergent Billing',
-      description: 'Instantaneous, accurate billing across all services and payment methods.',
-      image: '/images/billing.png'
+      icon: <FiCode />,
+      title: 'Development',
+      subtitle: 'Custom Software Development',
+      description: 'Full-stack development solutions tailored to your business needs with cutting-edge technologies.',
+      image: '/images/development.png'
     },
     {
-      icon: <FiZap />,
-      title: 'Charging',
-      subtitle: 'Online Charging System',
-      description: 'AI-powered insights that predict customer needs and drive personalized experiences.',
-      image: '/images/charging.svg'
+      icon: <FiSmartphone />,
+      title: 'Mobile',
+      subtitle: 'Mobile App Development',
+      description: 'Native and cross-platform mobile applications that deliver exceptional user experiences.',
+      image: '/images/mobile.svg'
+    },
+    {
+      icon: <FiGlobe />,
+      title: 'Web',
+      subtitle: 'Web Applications',
+      description: 'Responsive, scalable web applications built with modern frameworks and best practices.',
+      image: '/images/web.svg'
     },
     {
       icon: <FiLayers />,
-      title: 'Catalog',
-      subtitle: 'Product Catalog',
-      description: 'Intuitive tools that empower customers to manage their accounts with ease, freeing up your team.',
-      image: '/images/catalog.svg'
-    },
-    {
-      icon: <FiActivity />,
-      title: 'Events',
-      subtitle: 'Event Management',
-      description: 'Build lasting, profitable relationships through personalized interactions, targeted campaigns, and data-driven insights.',
-      image: '/images/events.svg'
+      title: 'Design',
+      subtitle: 'UI/UX Design',
+      description: 'Beautiful, intuitive designs that enhance user engagement and drive business growth.',
+      image: '/images/design.svg'
     }
   ];
 
@@ -55,7 +55,7 @@ const Features = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Efficiency, Scalability, and Agility
+            Innovation, Quality, and Excellence
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -63,7 +63,7 @@ const Features = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Unparalleled BSS/OSS Capabilities
+            Comprehensive Software Solutions
           </motion.h2>
         </motion.div>
 

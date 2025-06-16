@@ -7,59 +7,59 @@ const FloatingServices = () => {
   const services = [
     {
       id: 1,
-      icon: <FiWifi />,
-      title: "Network Management",
-      description: "Complete network infrastructure management and optimization",
-      color: "#0066ff"
+      icon: <FiGlobe />,
+      title: "Web Development",
+      description: "Modern, responsive websites and web applications",
+      color: "#6366f1"
     },
     {
       id: 2,
-      icon: <FiShield />,
-      title: "Security Solutions",
-      description: "Advanced security protocols and fraud prevention systems",
-      color: "#00cc66"
+      icon: <FiWifi />,
+      title: "Mobile Apps",
+      description: "Native and cross-platform mobile applications",
+      color: "#8b5cf6"
     },
     {
       id: 3,
-      icon: <FiTrendingUp />,
-      title: "Revenue Optimization",
-      description: "AI-powered revenue management and pricing strategies",
-      color: "#ff6600"
+      icon: <FiDatabase />,
+      title: "Backend Systems",
+      description: "Scalable server-side architecture and APIs",
+      color: "#06b6d4"
     },
     {
       id: 4,
       icon: <FiUsers />,
-      title: "Customer Experience",
-      description: "Enhanced customer journey and satisfaction management",
-      color: "#cc00ff"
+      title: "UI/UX Design",
+      description: "Beautiful, user-centered design experiences",
+      color: "#10b981"
     },
     {
       id: 5,
-      icon: <FiSettings />,
-      title: "System Integration",
-      description: "Seamless integration with existing telecom infrastructure",
-      color: "#ffcc00"
+      icon: <FiShield />,
+      title: "Security Solutions",
+      description: "Enterprise-grade security and data protection",
+      color: "#f59e0b"
     },
     {
       id: 6,
       icon: <FiZap />,
-      title: "Performance Analytics",
-      description: "Real-time performance monitoring and analytics dashboard",
-      color: "#ff0066"
+      title: "Performance Optimization",
+      description: "Speed and performance enhancement services",
+      color: "#ef4444"
     },
     {
       id: 7,
-      icon: <FiGlobe />,
-      title: "Global Connectivity",
-      description: "Worldwide network coverage and roaming solutions",
-      color: "#0099ff"
+      icon: <FiSettings />,
+      title: "DevOps & Deployment",
+      description: "Automated deployment and infrastructure management",
+      color: "#8b5cf6"
     },
     {
       id: 8,
-      icon: <FiDatabase />,
-      title: "Data Management",
-      description: "Comprehensive data storage and management solutions",
-      color: "#66ff00"
+      icon: <FiTrendingUp />,
+      title: "Analytics & Insights",
+      description: "Data analytics and business intelligence solutions",
+      color: "#06b6d4"
     }
   ];
 
@@ -76,7 +76,7 @@ const FloatingServices = () => {
           }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.span 
+          <motion.span
             className="section-subtitle"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -91,7 +91,7 @@ const FloatingServices = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Comprehensive MVNO Solutions
+            Comprehensive Software Development Solutions
           </motion.h2>
         </motion.div>
 

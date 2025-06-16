@@ -1,57 +1,63 @@
-import React from 'react';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import ClientLogos from './components/ClientLogos.jsx';
 import Features from './components/Features.jsx';
-import Interface from './components/Interface.jsx';
 import LaunchPad from './components/LaunchPad.jsx';
 import FloatingServices from './components/FloatingServices.jsx';
 import FloatingTestimonials from './components/FloatingTestimonials.jsx';
 import Awards from './components/Awards.jsx';
+import Team from './components/Team.jsx';
+import Contact from './components/Contact.jsx';
 import CTA from './components/CTA.jsx';
 import Footer from './components/Footer.jsx';
-import EnhancedHorizontalScroll from './components/EnhancedHorizontalScroll.jsx';
-import MouseWheelHandler from './components/MouseWheelHandler.jsx';
 
 function App() {
   return (
     <div className="App">
-      <MouseWheelHandler isActive={true} sensitivity={0.8} />
       <Header />
 
-      {/* Hero Section - Normal scroll */}
-      <Hero />
-      <ClientLogos />
+      <main>
+        <section id="home">
+          <Hero />
+        </section>
 
-      {/* Horizontal Scroll Sections */}
-      <EnhancedHorizontalScroll>
-        <div className="horizontal-section">
+        <section id="clients">
+          <ClientLogos />
+        </section>
+
+        <section id="services">
           <Features />
-        </div>
+        </section>
 
-        <div className="horizontal-section">
-          <Interface />
-        </div>
-
-        <div className="horizontal-section">
+        <section id="solutions">
           <LaunchPad />
-        </div>
+        </section>
 
-        <div className="horizontal-section">
+        <section id="our-services">
           <FloatingServices />
-        </div>
+        </section>
 
-        <div className="horizontal-section">
+        <section id="testimonials">
           <FloatingTestimonials />
-        </div>
+        </section>
 
-        <div className="horizontal-section">
+        <section id="portfolio">
           <Awards />
-        </div>
-      </EnhancedHorizontalScroll>
+        </section>
 
-      {/* Final sections - Normal scroll */}
-      <CTA />
+        <section id="team">
+          <Team />
+        </section>
+
+        <section id="cta">
+          <CTA />
+        </section>
+
+        <section id="contact">
+          <Contact />
+        </section>
+      </main>
+
       <Footer />
     </div>
   );

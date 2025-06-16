@@ -23,7 +23,7 @@ const CTA = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Ready to transform your MVNO?
+              Ready to bring your ideas to life?
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -31,7 +31,7 @@ const CTA = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              Schedule a demo today and witness the transformative power of the Effortel Mobile Suite. Your journey to MVNO dominance starts here.
+              Let's discuss your project and create something amazing together. Get a free consultation and see how we can transform your digital vision into reality.
             </motion.p>
           </div>
 
@@ -48,10 +48,10 @@ const CTA = () => {
             viewport={{ once: true }}
           >
             <motion.a
-              href="#meeting"
+              href="#consultation"
               className="btn btn-primary btn-large"
               whileHover={{
-                boxShadow: "0 25px 60px rgba(0, 102, 255, 0.5)"
+                boxShadow: "0 25px 60px rgba(99, 102, 241, 0.5)"
               }}
             >
               <motion.div
@@ -60,7 +60,7 @@ const CTA = () => {
               >
                 <FiCalendar />
               </motion.div>
-              Book a Meeting
+              Get Free Consultation
               <motion.div
                 animate={{ x: [0, 5, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}

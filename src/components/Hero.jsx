@@ -23,10 +23,10 @@ const Hero = () => {
 
   // Typewriter effect words
   const words = [
-    "Streamline Operations",
-    "Skyrocket Revenue",
-    "Delight Customers",
-    "Transform Business"
+    "Digital Excellence",
+    "Software Innovation",
+    "Tech Solutions",
+    "Future-Ready Apps"
   ];
 
   useEffect(() => {
@@ -155,7 +155,7 @@ const Hero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                #1 GLOBALLY
+                PREMIUM SOFTWARE
               </motion.span>
               <motion.span
                 className="badge-subtitle"
@@ -163,7 +163,7 @@ const Hero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                RECOGNIZED AS THE BEST MVNE
+                DEVELOPMENT COMPANY
               </motion.span>
             </motion.div>
 
@@ -203,7 +203,7 @@ const Hero = () => {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 1.0, ease: [0.6, -0.05, 0.01, 0.99] }}
                 >
-                  Transform
+                  Crafting
                 </motion.span>
                 <motion.span
                   className="title-word highlight"
@@ -211,7 +211,7 @@ const Hero = () => {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 1.2, ease: [0.6, -0.05, 0.01, 0.99] }}
                 >
-                  Your Business
+                  Digital Dreams
                 </motion.span>
               </motion.div>
 

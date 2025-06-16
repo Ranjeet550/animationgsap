@@ -7,59 +7,45 @@ const Awards = () => {
   const awards = [
     {
       year: '2024',
-      title: 'OSS/BSS Solution of the Year',
-      description: 'Awarded for the best OSS/BSS solution in telecom at MVNOs World Congress 2024',
+      title: 'Best Software Development Company',
+      description: 'Awarded for excellence in custom software development and innovative solutions',
       icon: <FiTarget />,
-      image: '/images/award-2024-mvno.webp'
+      image: '/images/award-2024-software.webp'
     },
     {
       year: '2024',
-      title: 'Top Technology Solutions Provider for the Telecom Industry',
-      description: 'Recognizing top telecom technology solution providers (by CIO Review)',
+      title: 'Top Web Development Agency',
+      description: 'Recognizing outstanding web development services and client satisfaction',
       icon: <FiStar />,
-      image: '/images/award-cio.webp'
+      image: '/images/award-web-dev.webp'
     },
     {
-      year: '2024',
-      title: 'BSS/OSS Platform Company of the Year',
-      description: 'Honoring excellence in telecom BSS/OSS solutions - by Telecom Business Review',
+      year: '2023',
+      title: 'Innovation in Mobile App Development',
+      description: 'Honoring excellence in mobile application development and user experience',
       icon: <FiAward />,
-      image: '/images/award-oss-solutions.png'
+      image: '/images/award-mobile-innovation.png'
     },
     {
-      year: '2024',
-      title: 'Best Private Telecommunications Services',
-      description: 'Recognizing top private telecom service providers in Europe by EUBusinessnews',
+      year: '2023',
+      title: 'Best UI/UX Design Studio',
+      description: 'Recognizing exceptional design capabilities and user-centered approach',
       icon: <FiTarget />,
-      image: '/images/award-private-telecom.png'
+      image: '/images/award-design-studio.png'
     },
     {
-      year: '2019',
-      title: 'Best MVNE 2019',
-      description: 'Recognizing the best Mobile Virtual Network Enabler (MVNE) globally.',
+      year: '2022',
+      title: 'Enterprise Software Excellence',
+      description: 'Awarded for delivering robust enterprise-grade software solutions',
       icon: <FiAward />,
-      image: '/images/award-mvne-2019.png'
+      image: '/images/award-enterprise-2022.png'
     },
     {
-      year: '2018',
-      title: 'Best MVNE 2018',
-      description: 'Recognizing the best Mobile Virtual Network Enabler (MVNE) globally.',
-      icon: <FiAward />,
-      image: '/images/award-mvne-2018.png'
-    },
-    {
-      year: '2017',
-      title: 'Best practices award',
-      description: 'Awarded for innovation, market leadership, and business excellence by Frost and Sullivan',
+      year: '2022',
+      title: 'Client Satisfaction Award',
+      description: 'Recognizing outstanding client service and project delivery excellence',
       icon: <FiStar />,
-      image: '/images/award-best-practices.png'
-    },
-    {
-      year: '2016',
-      title: 'Best MVNE',
-      description: 'Recognizing the best Mobile Virtual Network Enabler (MVNE) globally.',
-      icon: <FiAward />,
-      image: '/images/award-mvne-2016.png'
+      image: '/images/award-client-satisfaction.png'
     }
   ];
 
@@ -91,7 +77,7 @@ const Awards = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Recognized for Excellence in BSS/OSS and MVNE Solutions
+            Recognized for Excellence in Software Development
           </motion.h2>
         </motion.div>
 

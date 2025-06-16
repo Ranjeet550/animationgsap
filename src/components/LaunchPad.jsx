@@ -1,45 +1,45 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiZap, FiTarget, FiTrendingUp, FiDollarSign, FiHeadphones, FiSettings } from 'react-icons/fi';
+import { FiZap, FiTarget, FiTrendingUp, FiShield, FiHeadphones, FiSettings } from 'react-icons/fi';
 import FloatingCard from './FloatingCard.jsx';
 
 const LaunchPad = () => {
   const features = [
     {
       icon: <FiZap />,
-      title: 'Rapid Time-to-Market',
-      description: 'Fast MVNO launch with pre-configured modules and expert guidance.',
-      image: '/images/launch.svg'
+      title: 'Rapid Development',
+      description: 'Fast project delivery with agile methodologies and modern development practices.',
+      image: '/images/development.svg'
     },
     {
       icon: <FiTarget />,
-      title: 'Proven Methodology',
-      description: 'Step-by-step LaunchPad program for planning, implementation, marketing, and acquisition.',
-      image: '/images/methodology.svg'
+      title: 'Strategic Planning',
+      description: 'Comprehensive project planning from concept to deployment with clear milestones.',
+      image: '/images/planning.svg'
     },
     {
       icon: <FiTrendingUp />,
-      title: 'Scalability and Performance',
-      description: 'Platform scales to meet growing demands, ensuring peak performance.',
-      image: '/images/performance.svg'
+      title: 'Scalable Architecture',
+      description: 'Future-proof solutions that grow with your business and adapt to changing needs.',
+      image: '/images/scalability.svg'
     },
     {
-      icon: <FiDollarSign />,
-      title: 'Reduced Operational Costs',
-      description: 'Streamlined automation and interface for optimized resources.',
-      image: '/images/costs.svg'
+      icon: <FiShield />,
+      title: 'Security First',
+      description: 'Enterprise-grade security measures and best practices built into every solution.',
+      image: '/images/security.svg'
     },
     {
       icon: <FiHeadphones />,
-      title: 'Expert Support',
-      description: '24/7 support for smooth and efficient operations.',
-      image: '/images/support.webp'
+      title: 'Ongoing Support',
+      description: 'Dedicated support team ensuring your applications run smoothly 24/7.',
+      image: '/images/support.svg'
     },
     {
       icon: <FiSettings />,
-      title: 'Unmatched Flexibility',
-      description: 'Configurable workflows, rules, and integrations for unique business needs.',
-      image: '/images/flexibility.svg'
+      title: 'Custom Solutions',
+      description: 'Tailored software solutions designed specifically for your unique business requirements.',
+      image: '/images/custom.svg'
     }
   ];
 
@@ -63,7 +63,7 @@ const LaunchPad = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            MVNO LaunchPad – Accelerate Your Journey
+            Development Solutions – Accelerate Your Growth
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -71,7 +71,7 @@ const LaunchPad = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            From Vision to Reality: Launching Your MVNO
+            From Concept to Launch: Building Your Digital Future
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -79,7 +79,7 @@ const LaunchPad = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            Effortel's MVNO LaunchPad and Mobile Suite provide the foundation you need to not only launch your MVNO with unprecedented speed, but also thrive in the competitive telecommunications landscape.
+            DEV SPHERE's comprehensive development solutions provide everything you need to transform your ideas into powerful, scalable software applications that drive business success.
           </motion.p>
         </motion.div>
 

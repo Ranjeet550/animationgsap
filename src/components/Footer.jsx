@@ -4,30 +4,33 @@ import { FiTwitter, FiLinkedin, FiFacebook } from 'react-icons/fi';
 
 const Footer = () => {
   const footerLinks = {
-    Products: [
-      { name: 'EMS', href: '#ems' },
-      { name: 'Spotlight', href: '#spotlight' }
+    Services: [
+      { name: 'Web Development', href: '#web-development' },
+      { name: 'Mobile Apps', href: '#mobile-apps' },
+      { name: 'Enterprise Software', href: '#enterprise-software' },
+      { name: 'UI/UX Design', href: '#ui-ux-design' }
     ],
     Solutions: [
-      { name: 'MVNO Launchpad', href: '#mvno-launchpad' },
-      { name: 'MnO', href: '#mno' }
+      { name: 'E-commerce', href: '#ecommerce' },
+      { name: 'SaaS Applications', href: '#saas' },
+      { name: 'Custom Software', href: '#custom-software' }
+    ],
+    Company: [
+      { name: 'About Us', href: '#about' },
+      { name: 'Our Team', href: '#team' },
+      { name: 'Careers', href: '#careers' },
+      { name: 'Portfolio', href: '#portfolio' }
     ],
     Resources: [
       { name: 'Blog', href: '#blog' },
-      { name: 'Case studies', href: '#case-studies' },
-      { name: 'Events', href: '#events' },
-      { name: 'News', href: '#news' }
+      { name: 'Case Studies', href: '#case-studies' },
+      { name: 'Documentation', href: '#docs' },
+      { name: 'Support', href: '#support' }
     ],
-    Main: [
-      { name: 'About', href: '#about' },
-      { name: 'Career', href: '#career' },
-      { name: 'Contact', href: '#contact' },
-      { name: 'Services', href: '#services' }
-    ],
-    Legals: [
-      { name: 'Cookie policy', href: '#cookie-policy' },
-      { name: 'Privacy policy', href: '#privacy-policy' },
-      { name: 'Terms of use', href: '#terms-of-use' }
+    Legal: [
+      { name: 'Privacy Policy', href: '#privacy-policy' },
+      { name: 'Terms of Service', href: '#terms-of-service' },
+      { name: 'Cookie Policy', href: '#cookie-policy' }
     ]
   };
 
@@ -112,7 +115,7 @@ const Footer = () => {
                 transition={{ duration: 0.6, delay: 1 }}
                 viewport={{ once: true }}
               >
-                Take Your Brand Mobile.
+                Transform Your Digital Vision.
               </motion.h3>
 
               <div className="social-links">
@@ -156,11 +159,11 @@ const Footer = () => {
                 transition={{ duration: 0.8, delay: 1.5 }}
                 whileHover={{
                   scale: 1.1,
-                  boxShadow: "0 15px 30px rgba(0, 102, 255, 0.4)"
+                  boxShadow: "0 15px 30px rgba(99, 102, 241, 0.4)"
                 }}
                 viewport={{ once: true }}
               >
-              
+                <div className="logo-placeholder">DEV SPHERE</div>
               </motion.div>
             </div>
           </motion.div>
@@ -183,7 +186,7 @@ const Footer = () => {
               transition={{ duration: 0.4, delay: 2 }}
               viewport={{ once: true }}
             >
-            
+              © 2024 DEV SPHERE. All rights reserved.
             </motion.p>
             <motion.p
               initial={{ opacity: 0 }}
@@ -195,12 +198,12 @@ const Footer = () => {
                 href="#design"
                 className="design-credit"
                 whileHover={{
-                  color: "#0066ff",
+                  color: "#6366f1",
                   scale: 1.05
                 }}
                 transition={{ duration: 0.2 }}
               >
-               
+                Crafted with ❤️ by DEV SPHERE
               </motion.a>
             </motion.p>
           </motion.div>

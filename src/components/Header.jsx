@@ -17,34 +17,35 @@ const Header = () => {
 
   const menuItems = [
     {
-      title: 'Products',
+      title: 'Services',
       hasDropdown: true,
       items: [
-        { name: 'Effortel Mobile Suite (EMS)', href: '#ems' },
-        { name: 'Real-Time Service Management', href: '#service-management' },
-        { name: 'Third-Party Integration', href: '#integration' },
-        { name: 'Customer Management', href: '#customer-management' },
+        { name: 'Web Development', href: '#web-development' },
+        { name: 'Mobile Apps', href: '#mobile-apps' },
+        { name: 'Enterprise Software', href: '#enterprise-software' },
+        { name: 'UI/UX Design', href: '#ui-ux-design' },
       ]
     },
     {
       title: 'Solutions',
       hasDropdown: true,
       items: [
-        { name: 'MVNO Launchpad', href: '#mvno-launchpad' },
-        { name: 'MNO Solutions', href: '#mno-solutions' },
+        { name: 'E-commerce Platforms', href: '#ecommerce' },
+        { name: 'SaaS Applications', href: '#saas' },
+        { name: 'Custom Software', href: '#custom-software' },
       ]
     },
     {
-      title: 'Resources',
+      title: 'Portfolio',
       hasDropdown: true,
       items: [
-        { name: 'Blog', href: '#blog' },
-        { name: 'Events', href: '#events' },
-        { name: 'Case Studies', href: '#case-studies' },
-        { name: 'News', href: '#news' },
+        { name: 'Case Studies', href: '#portfolio' },
+        { name: 'Client Projects', href: '#projects' },
+        { name: 'Testimonials', href: '#testimonials' },
       ]
     },
-    { title: 'Services', href: '#services' },
+    { title: 'Team', href: '#team' },
+    { title: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -61,12 +62,13 @@ const Header = () => {
       <div className="container">
         <div className="header-content">
           {/* Logo */}
-          <motion.div 
+          <motion.div
             className="logo"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-           
+            <img src="/logo.svg" alt="DEV SPHERE Logo" />
+            <span className="company-name">DEV SPHERE</span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -144,29 +146,29 @@ const Header = () => {
             }}
           >
             <motion.a
-              href="#contact"
+              href="#portfolio"
               className="btn btn-secondary"
               whileHover={{
                 scale: 1.05,
-                borderColor: "#0066ff",
-                boxShadow: "0 5px 15px rgba(0, 102, 255, 0.2)"
+                borderColor: "#6366f1",
+                boxShadow: "0 5px 15px rgba(99, 102, 241, 0.2)"
               }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
-              Get in touch
+              View Portfolio
             </motion.a>
             <motion.a
-              href="#meeting"
+              href="#quote"
               className="btn btn-primary"
               whileHover={{
                 scale: 1.05,
-                boxShadow: "0 10px 25px rgba(0, 102, 255, 0.4)"
+                boxShadow: "0 10px 25px rgba(99, 102, 241, 0.4)"
               }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
-              Book a meeting
+              Get Quote
             </motion.a>
           </motion.div>
 
