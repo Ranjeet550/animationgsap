@@ -1,9 +1,13 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FiLinkedin, FiGithub, FiTwitter, FiMail } from 'react-icons/fi';
+import React, { useRef } from 'react';
+import { motion, useMotionValue, useDragControls } from 'framer-motion';
+import { FiLinkedin, FiGithub, FiTwitter, FiMail, FiChevronLeft, FiChevronRight, FiUsers } from 'react-icons/fi';
 import FloatingCard from './FloatingCard.jsx';
 
 const Team = () => {
+  const scrollRef = useRef(null);
+  const dragControls = useDragControls();
+  const x = useMotionValue(0);
+
   const teamMembers = [
     {
       id: 1,
@@ -87,6 +91,18 @@ const Team = () => {
     }
   ];
 
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -350, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 350, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="team section">
       <div className="container">
@@ -129,126 +145,205 @@ const Team = () => {
           </motion.p>
         </motion.div>
 
-        <div className="team-grid">
-          {teamMembers.map((member, index) => (
-            <FloatingCard
-              key={member.id}
-              className="team-card-wrapper"
-              delay={index * 0.15}
-              direction={index % 3 === 0 ? "up" : index % 3 === 1 ? "left" : "right"}
-              intensity={1.2}
-              index={index}
-              rotateOnHover={true}
-              glowEffect={true}
+        <div className="team-container">
+          {/* Navigation Buttons */}
+          <motion.button
+            className="scroll-btn scroll-btn-left"
+            onClick={scrollLeft}
+            whileHover={{ scale: 1.1, backgroundColor: "rgba(99, 102, 241, 0.2)" }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <FiChevronLeft />
+          </motion.button>
+
+          <motion.button
+            className="scroll-btn scroll-btn-right"
+            onClick={scrollRight}
+            whileHover={{ scale: 1.1, backgroundColor: "rgba(99, 102, 241, 0.2)" }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <FiChevronRight />
+          </motion.button>
+
+          {/* Scrollable Team Track */}
+          <motion.div
+            className="team-track"
+            ref={scrollRef}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              className="team-scroll-content"
+              drag="x"
+              dragControls={dragControls}
+              dragConstraints={{ left: -1200, right: 0 }}
+              dragElastic={0.1}
+              style={{ x }}
             >
-              <div className="team-member">
+              {teamMembers.map((member, index) => (
                 <motion.div
-                  className="member-image"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  key={member.id}
+                  className="team-member"
+                  initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{
                     duration: 0.6,
                     delay: index * 0.1 + 0.2,
                     ease: [0.6, -0.05, 0.01, 0.99]
                   }}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{
+                    scale: 1.05,
+                    y: -15,
+                    rotateY: 8,
+                    transition: { duration: 0.3 }
+                  }}
                   viewport={{ once: true }}
                 >
-                  <div className="image-placeholder">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </div>
-                  <div className="member-overlay">
-                    <div className="social-links">
-                      {member.social.linkedin && (
-                        <motion.a
-                          href={member.social.linkedin}
-                          whileHover={{ scale: 1.2, color: "#0077b5" }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <FiLinkedin />
-                        </motion.a>
-                      )}
-                      {member.social.github && (
-                        <motion.a
-                          href={member.social.github}
-                          whileHover={{ scale: 1.2, color: "#333" }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <FiGithub />
-                        </motion.a>
-                      )}
-                      {member.social.twitter && (
-                        <motion.a
-                          href={member.social.twitter}
-                          whileHover={{ scale: 1.2, color: "#1da1f2" }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <FiTwitter />
-                        </motion.a>
-                      )}
-                      {member.social.email && (
-                        <motion.a
-                          href={`mailto:${member.social.email}`}
-                          whileHover={{ scale: 1.2, color: "#ea4335" }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <FiMail />
-                        </motion.a>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
-
-                <div className="member-info">
-                  <motion.h3
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
-                    viewport={{ once: true }}
-                  >
-                    {member.name}
-                  </motion.h3>
-                  <motion.p
-                    className="member-role"
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 + 0.5 }}
-                    viewport={{ once: true }}
-                  >
-                    {member.role}
-                  </motion.p>
-                  <motion.p
-                    className="member-bio"
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 + 0.6 }}
-                    viewport={{ once: true }}
-                  >
-                    {member.bio}
-                  </motion.p>
-
                   <motion.div
-                    className="member-skills"
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 + 0.7 }}
+                    className="member-image"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.6,
+                      delay: index * 0.1 + 0.3,
+                      ease: [0.6, -0.05, 0.01, 0.99]
+                    }}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
                     viewport={{ once: true }}
                   >
-                    {member.skills.map((skill, skillIndex) => (
-                      <motion.span
-                        key={skillIndex}
-                        className="skill-tag"
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {skill}
-                      </motion.span>
-                    ))}
+                    <div className="image-placeholder">
+                      {member.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <div className="member-overlay">
+                      <div className="social-links">
+                        {member.social.linkedin && (
+                          <motion.a
+                            href={member.social.linkedin}
+                            whileHover={{ scale: 1.3, color: "#0077b5" }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <FiLinkedin />
+                          </motion.a>
+                        )}
+                        {member.social.github && (
+                          <motion.a
+                            href={member.social.github}
+                            whileHover={{ scale: 1.3, color: "#333" }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <FiGithub />
+                          </motion.a>
+                        )}
+                        {member.social.twitter && (
+                          <motion.a
+                            href={member.social.twitter}
+                            whileHover={{ scale: 1.3, color: "#1da1f2" }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <FiTwitter />
+                          </motion.a>
+                        )}
+                        {member.social.email && (
+                          <motion.a
+                            href={`mailto:${member.social.email}`}
+                            whileHover={{ scale: 1.3, color: "#ea4335" }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <FiMail />
+                          </motion.a>
+                        )}
+                      </div>
+                    </div>
                   </motion.div>
-                </div>
-              </div>
-            </FloatingCard>
-          ))}
+
+                  <div className="member-info">
+                    <motion.h3
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
+                      viewport={{ once: true }}
+                    >
+                      {member.name}
+                    </motion.h3>
+                    <motion.p
+                      className="member-role"
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 + 0.5 }}
+                      viewport={{ once: true }}
+                    >
+                      {member.role}
+                    </motion.p>
+                    <motion.p
+                      className="member-bio"
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 + 0.6 }}
+                      viewport={{ once: true }}
+                    >
+                      {member.bio}
+                    </motion.p>
+
+                    <motion.div
+                      className="member-skills"
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 + 0.7 }}
+                      viewport={{ once: true }}
+                    >
+                      {member.skills.map((skill, skillIndex) => (
+                        <motion.span
+                          key={skillIndex}
+                          className="skill-tag"
+                          whileHover={{ scale: 1.1, y: -3 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {skill}
+                        </motion.span>
+                      ))}
+                    </motion.div>
+                  </div>
+
+                  {/* Member Glow Effect */}
+                  <motion.div
+                    className="member-glow"
+                    animate={{
+                      opacity: [0.2, 0.5, 0.2],
+                      scale: [1, 1.1, 1]
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: index * 0.8
+                    }}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            className="scroll-indicator"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1 }}
+            viewport={{ once: true }}
+          >
+            <FiUsers />
+            <span>← Drag or click arrows to meet the team →</span>
+          </motion.div>
         </div>
       </div>
 
@@ -287,22 +382,88 @@ const Team = () => {
           margin-bottom: 0;
         }
 
-        .team-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 2rem;
+        .team-container {
+          position: relative;
+          overflow: hidden;
+          margin-top: 2rem;
+        }
+
+        .scroll-btn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 55px;
+          height: 55px;
+          background: rgba(99, 102, 241, 0.1);
+          border: 1px solid rgba(99, 102, 241, 0.3);
+          border-radius: 50%;
+          color: var(--primary-color);
+          font-size: 1.3rem;
+          cursor: pointer;
+          z-index: 10;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          backdrop-filter: blur(10px);
+          transition: all 0.3s ease;
+        }
+
+        .scroll-btn:hover {
+          background: rgba(99, 102, 241, 0.2);
+          border-color: var(--primary-color);
+          box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .scroll-btn-left {
+          left: 1rem;
+        }
+
+        .scroll-btn-right {
+          right: 1rem;
+        }
+
+        .team-track {
+          overflow-x: auto;
+          overflow-y: hidden;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          padding: 2rem 0;
+          cursor: grab;
+        }
+
+        .team-track::-webkit-scrollbar {
+          display: none;
+        }
+
+        .team-track:active {
+          cursor: grabbing;
+        }
+
+        .team-scroll-content {
+          display: flex;
+          gap: 2.5rem;
+          padding: 0 4rem;
+          width: fit-content;
         }
 
         .team-member {
           background: var(--background-dark);
           border: 1px solid var(--border-color);
-          border-radius: 20px;
+          border-radius: 24px;
           padding: 2rem;
           text-align: center;
           transition: all 0.3s ease;
           cursor: pointer;
           position: relative;
           overflow: hidden;
+          min-width: 320px;
+          max-width: 320px;
+          height: 480px;
+          flex-shrink: 0;
+          transform-style: preserve-3d;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
 
         .team-member::before {
@@ -323,7 +484,8 @@ const Team = () => {
 
         .team-member:hover {
           border-color: var(--primary-color);
-          box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+          box-shadow: 0 30px 60px rgba(99, 102, 241, 0.2);
+          transform: translateY(-15px) rotateY(8deg);
         }
 
         .member-image {
@@ -419,16 +581,66 @@ const Team = () => {
         .skill-tag:hover {
           border-color: var(--primary-color);
           color: var(--primary-color);
+          background: rgba(99, 102, 241, 0.1);
+        }
+
+        .member-glow {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 250px;
+          height: 250px;
+          background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+          border-radius: 50%;
+          z-index: 1;
+          pointer-events: none;
+        }
+
+        .scroll-indicator {
+          text-align: center;
+          margin-top: 2rem;
+          color: var(--text-muted);
+          font-size: 0.9rem;
+          opacity: 0.8;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+        }
+
+        .scroll-indicator span {
+          background: rgba(99, 102, 241, 0.1);
+          padding: 0.5rem 1rem;
+          border-radius: 20px;
+          border: 1px solid rgba(99, 102, 241, 0.2);
         }
 
         @media (max-width: 768px) {
-          .team-grid {
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+          .team-scroll-content {
+            padding: 0 2rem;
+            gap: 2rem;
           }
 
           .team-member {
+            min-width: 280px;
+            max-width: 280px;
+            height: 450px;
             padding: 1.5rem;
+          }
+
+          .scroll-btn {
+            width: 45px;
+            height: 45px;
+            font-size: 1.1rem;
+          }
+
+          .scroll-btn-left {
+            left: 0.5rem;
+          }
+
+          .scroll-btn-right {
+            right: 0.5rem;
           }
 
           .image-placeholder {
@@ -444,15 +656,29 @@ const Team = () => {
           .section-header h2 {
             font-size: 2rem;
           }
+
+          .scroll-indicator {
+            font-size: 0.8rem;
+          }
         }
 
         @media (max-width: 480px) {
-          .team-grid {
-            grid-template-columns: 1fr;
+          .team-scroll-content {
+            padding: 0 1rem;
+            gap: 1.5rem;
           }
 
           .team-member {
+            min-width: 250px;
+            max-width: 250px;
+            height: 420px;
             padding: 1rem;
+          }
+
+          .scroll-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
           }
 
           .image-placeholder {
@@ -467,6 +693,15 @@ const Team = () => {
 
           .member-bio {
             font-size: 0.9rem;
+          }
+
+          .scroll-indicator {
+            font-size: 0.75rem;
+            margin-top: 1rem;
+          }
+
+          .scroll-indicator span {
+            padding: 0.4rem 0.8rem;
           }
         }
       `}</style>
