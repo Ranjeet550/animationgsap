@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useDragControls } from 'framer-motion';
-import { FiLinkedin, FiGithub, FiTwitter, FiMail, FiChevronLeft, FiChevronRight, FiUsers } from 'react-icons/fi';
+import { FiLinkedin, FiGithub, FiTwitter, FiMail, FiUsers } from 'react-icons/fi';
 import FloatingCard from './FloatingCard.jsx';
 
 const Team = () => {
@@ -91,17 +91,7 @@ const Team = () => {
     }
   ];
 
-  const scrollLeft = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -350, behavior: 'smooth' });
-    }
-  };
 
-  const scrollRight = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 350, behavior: 'smooth' });
-    }
-  };
 
   return (
     <section className="team section">
@@ -146,33 +136,6 @@ const Team = () => {
         </motion.div>
 
         <div className="team-container">
-          {/* Navigation Buttons */}
-          <motion.button
-            className="scroll-btn scroll-btn-left"
-            onClick={scrollLeft}
-            whileHover={{ scale: 1.1, backgroundColor: "rgba(99, 102, 241, 0.2)" }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <FiChevronLeft />
-          </motion.button>
-
-          <motion.button
-            className="scroll-btn scroll-btn-right"
-            onClick={scrollRight}
-            whileHover={{ scale: 1.1, backgroundColor: "rgba(99, 102, 241, 0.2)" }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <FiChevronRight />
-          </motion.button>
-
           {/* Scrollable Team Track */}
           <motion.div
             className="team-track"
@@ -342,7 +305,7 @@ const Team = () => {
             viewport={{ once: true }}
           >
             <FiUsers />
-            <span>← Drag or click arrows to meet the team →</span>
+            <span>← Drag to explore our team →</span>
           </motion.div>
         </div>
       </div>
@@ -388,39 +351,7 @@ const Team = () => {
           margin-top: 2rem;
         }
 
-        .scroll-btn {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 55px;
-          height: 55px;
-          background: rgba(99, 102, 241, 0.1);
-          border: 1px solid rgba(99, 102, 241, 0.3);
-          border-radius: 50%;
-          color: var(--primary-color);
-          font-size: 1.3rem;
-          cursor: pointer;
-          z-index: 10;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          backdrop-filter: blur(10px);
-          transition: all 0.3s ease;
-        }
 
-        .scroll-btn:hover {
-          background: rgba(99, 102, 241, 0.2);
-          border-color: var(--primary-color);
-          box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
-        }
-
-        .scroll-btn-left {
-          left: 1rem;
-        }
-
-        .scroll-btn-right {
-          right: 1rem;
-        }
 
         .team-track {
           overflow-x: auto;
@@ -442,7 +373,7 @@ const Team = () => {
         .team-scroll-content {
           display: flex;
           gap: 2.5rem;
-          padding: 0 4rem;
+          padding: 0 2rem;
           width: fit-content;
         }
 
@@ -618,7 +549,7 @@ const Team = () => {
 
         @media (max-width: 768px) {
           .team-scroll-content {
-            padding: 0 2rem;
+            padding: 0 1.5rem;
             gap: 2rem;
           }
 
@@ -627,20 +558,6 @@ const Team = () => {
             max-width: 280px;
             height: 450px;
             padding: 1.5rem;
-          }
-
-          .scroll-btn {
-            width: 45px;
-            height: 45px;
-            font-size: 1.1rem;
-          }
-
-          .scroll-btn-left {
-            left: 0.5rem;
-          }
-
-          .scroll-btn-right {
-            right: 0.5rem;
           }
 
           .image-placeholder {
@@ -673,12 +590,6 @@ const Team = () => {
             max-width: 250px;
             height: 420px;
             padding: 1rem;
-          }
-
-          .scroll-btn {
-            width: 40px;
-            height: 40px;
-            font-size: 1rem;
           }
 
           .image-placeholder {
